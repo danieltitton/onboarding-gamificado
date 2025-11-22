@@ -1,0 +1,279 @@
+/* Importa as fontes Poppins e Orbitron do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap');
+
+/* Define as variáveis de cor (paleta) e estilos globais */
+:root {
+    --cor-fundo-escuro: #0a0a1a;
+    --cor-neon-azul: #00bfff;
+    --cor-neon-vermelho: #ff3366;
+    --cor-texto: #f0f0f0;
+    --cor-fundo-secao: #10102a;
+}
+
+/* Reset básico e estilos do corpo */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; /* Poppins como fonte padrão */
+}
+
+body {
+    background-color: var(--cor-fundo-escuro);
+    color: var(--cor-texto);
+}
+
+a {
+    color: var(--cor-neon-azul);
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+h1, h2, h3 {
+    font-family: 'Orbitron', sans-serif; /* Orbitron para títulos */
+    color: var(--cor-neon-azul);
+}
+
+/* Estilo específico para o logo */
+.logo a {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 1.8em;
+    color: var(--cor-neon-azul);
+    text-shadow: 0 0 5px var(--cor-neon-azul), 0 0 10px var(--cor-neon-azul), 0 0 15px var(--cor-neon-azul);
+}
+
+/* Estilo para o Header (Menu) */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background-color: rgba(0, 0, 0, 0.4); /* Fundo semi-transparente */
+    border-bottom: 1px solid var(--cor-neon-azul);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(5px); /* Efeito de blur no fundo */
+}
+
+header nav ul {
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 30px;
+}
+
+header nav ul li a {
+    font-size: 1em;
+    padding: 5px 0;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: var(--cor-neon-vermelho);
+    text-shadow: 0 0 5px var(--cor-neon-vermelho);
+}
+
+/* Estilo para o botão no menu */
+.btn {
+    background-color: var(--cor-neon-azul);
+    color: var(--cor-fundo-escuro);
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--cor-neon-vermelho);
+    color: var(--cor-texto);
+    box-shadow: 0 0 10px var(--cor-neon-vermelho);
+    text-shadow: none; /* Remove o text-shadow para o hover do botão */
+}
+
+/* Estilo para a Seção Painel (Hero Section) */
+#painel {
+    height: 90vh; /* Ocupa 90% da altura da viewport */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 10%;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://via.placeholder.com/1500x900/0a0a1a/0a0a1a?text=MarketQuest+Background') no-repeat center center/cover;
+    /* Aqui você pode trocar a imagem de fundo */
+    border-bottom: 1px solid var(--cor-neon-azul);
+}
+
+#painel h1 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px var(--cor-neon-azul), 0 0 20px var(--cor-neon-azul);
+    line-height: 1.2;
+}
+
+#painel p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    max-width: 800px;
+    opacity: 0.8;
+}
+
+.btn-main {
+    background-color: var(--cor-neon-vermelho);
+    color: var(--cor-texto);
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 0 10px var(--cor-neon-vermelho);
+}
+
+.btn-main:hover {
+    background-color: var(--cor-neon-azul);
+    box-shadow: 0 0 20px var(--cor-neon-azul), 0 0 40px var(--cor-neon-azul);
+    transform: translateY(-3px);
+}
+
+/* Estilos para as Seções Genéricas */
+main section {
+    padding: 80px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+main section h2 {
+    font-size: 2.5em;
+    margin-bottom: 50px;
+    text-shadow: 0 0 8px var(--cor-neon-azul);
+    position: relative;
+    padding-bottom: 15px;
+}
+
+main section h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--cor-neon-vermelho);
+    box-shadow: 0 0 5px var(--cor-neon-vermelho), 0 0 10px var(--cor-neon-vermelho);
+    border-radius: 2px;
+}
+
+
+/* Estilos para a Seção de Missões */
+#quests {
+    background-color: var(--cor-fundo-secao); /* Um fundo ligeiramente diferente */
+    border-top: 1px solid var(--cor-neon-vermelho);
+    border-bottom: 1px solid var(--cor-neon-vermelho);
+}
+
+.quests-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.quest-item {
+    background-color: var(--cor-fundo-escuro);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 191, 255, 0.2); /* Sutil brilho azul */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0, 191, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.quest-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: var(--cor-neon-vermelho); /* Barra de destaque no topo */
+    box-shadow: 0 0 5px var(--cor-neon-vermelho);
+}
+
+.quest-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 25px rgba(0, 191, 255, 0.4), 0 0 40px rgba(0, 191, 255, 0.1);
+    border-color: var(--cor-neon-azul);
+}
+
+.quest-item h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    text-shadow: 0 0 5px var(--cor-neon-azul);
+    color: var(--cor-neon-azul); /* Garante a cor neon azul para o H3 */
+}
+
+.quest-item p {
+    font-size: 1em;
+    line-height: 1.6;
+    color: var(--cor-texto);
+    opacity: 0.9;
+}
+
+/* Estilos para a Seção Time de Onboarding */
+#time-onboarding {
+    background-color: var(--cor-fundo-escuro);
+    border-bottom: 1px solid var(--cor-neon-azul);
+}
+
+.time-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.membro {
+    background-color: var(--cor-fundo-secao);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0, 255, 255, 0.2);
+}
+
+.membro:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3), 0 0 30px rgba(0, 255, 255, 0.1);
+}
+
+.membro img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid var(--cor-neon-vermelho);
+    box-shadow: 0 0 8px var(--cor-neon-vermelho);
+}
+
+.membro h3 {
+    font-size: 1.4em;
+    margin-bottom: 5px;
+    color: var(--cor-texto); /* Nome em branco para contraste */
+    text-shadow: none; /* Remove text-shadow de h3 genérico */
+}
+
+.membro p {
+    font-size: 0.95em;
+    color: var(--cor-neon-azul); /* Cargo em azul neon */
+    opacity: 0.9;
+}
