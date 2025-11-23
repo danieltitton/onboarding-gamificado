@@ -180,4 +180,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (resetButton) {
         resetButton.addEventListener('click', resetarProgresso);
     }
+
+    // Lógica para o menu hambúrguer
+    const menuHamburger = document.querySelector('.menu-hamburger');
+    const navLinks = document.getElementById('nav-links');
+
+    if (menuHamburger && navLinks) {
+        menuHamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuHamburger.classList.toggle('active');
+        });
+    }
 });

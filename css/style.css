@@ -44,6 +44,7 @@ h1, h2, h3 {
     font-size: 1.8em;
     color: var(--cor-neon-azul);
     text-shadow: 0 0 5px var(--cor-neon-azul), 0 0 10px var(--cor-neon-azul), 0 0 15px var(--cor-neon-azul);
+    
 }
 
 /* Estilo para o Header (Menu) */
@@ -63,6 +64,33 @@ header {
 header nav {
     display: flex;
     align-items: center; /* Garante alinhamento vertical */
+}
+
+.menu-hamburger {
+    display: none; /* Escondido por padrão */
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-hamburger span {
+    height: 3px;
+    width: 25px;
+    background: var(--cor-neon-azul);
+    margin-bottom: 4px;
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+}
+
+.menu-hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
 }
 
 header nav ul {
@@ -134,7 +162,7 @@ header nav ul li a:hover {
     align-items: center;
     text-align: center;
     padding: 0 10%;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://via.placeholder.com/1500x900/0a0a1a/0a0a1a?text=MarketQuest+Background') no-repeat center center/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../src/images/banner.jpg) no-repeat center center/cover;
     /* Aqui você pode trocar a imagem de fundo */
     border-bottom: 1px solid var(--cor-neon-azul);
 }
@@ -524,4 +552,104 @@ footer {
     border-top: 1px solid rgba(0, 191, 255, 0.1);
     font-size: 0.85em;
     opacity: 0.6;
+}
+
+/* Estilos de Responsividade */
+@media (max-width: 992px) {
+    header nav {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+
+    .menu-hamburger {
+        display: flex;
+        order: 3; 
+    }
+
+    #nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        margin-top: 20px;
+        order: 4;
+    }
+
+    #nav-links.active {
+        display: flex;
+    }
+
+    #nav-links li {
+        margin: 15px 0;
+    }
+
+    header {
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 20px 5%;
+    }
+
+    header .logo {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    header nav {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .coin-counter {
+        margin: 0 15px;
+    }
+
+    #reset-btn {
+        margin: 0 15px;
+        width: auto;
+    }
+
+    #painel {
+        height: auto;
+        padding: 60px 5%;
+    }
+
+    #painel h1 {
+        font-size: 2.5em;
+    }
+
+    #painel p {
+        font-size: 1em;
+    }
+
+    main section {
+        padding: 60px 5%;
+    }
+
+    main section h2 {
+        font-size: 2em;
+    }
+
+    .quests-container,
+    .time-container,
+    .valores-container {
+        grid-template-columns: 1fr; /* Uma coluna para todos os grids */
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-section {
+        text-align: center;
+        max-width: 100%;
+    }
 }
