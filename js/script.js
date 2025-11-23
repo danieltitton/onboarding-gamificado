@@ -1,8 +1,17 @@
 // Estado inicial do jogador (usando let para permitir a atualização)
 let player = {
+    nome: 'Você',
     moedas: 0,
     questsCompletas: [],
 };
+
+// Dados simulados para o ranking
+const rankingSimulado = [
+    { nome: 'Ciclano', moedas: 55 },
+    { nome: 'Beltrano', moedas: 40 },
+    { nome: 'Fulano', moedas: 25 },
+    { nome: 'Zetano', moedas: 10 },
+];
 
 // Definição das Quests
 const quests = [
@@ -41,8 +50,19 @@ function salvarProgresso() {
     localStorage.setItem('playerProgresso', JSON.stringify(player));
 }
 
+// Função para resetar o estado de todas as quests para "não concluída"
+function resetarEstadoQuests() {
+    quests.forEach(quest => {
+        quest.concluida = false;
+    });
+}
+
 function carregarProgresso() {
     const progressoSalvo = localStorage.getItem('playerProgresso');
+    
+    // Resetar o estado das quests antes de carregar
+    resetarEstadoQuests();
+
     if (progressoSalvo) {
         player = JSON.parse(progressoSalvo);
         
@@ -52,7 +72,19 @@ function carregarProgresso() {
                 quest.concluida = true;
             }
         });
+    } else {
+        const nomeJogador = prompt("Bem-vindo, herói! Qual é o seu nome?");
+        if (nomeJogador) {
+            player.nome = nomeJogador;
+        }
     }
+}
+
+// Função para resetar o jogo completamente
+function resetarProgresso() {
+    localStorage.removeItem('playerProgresso'); // Remove os dados salvos
+    alert('Progresso resetado! O jogo será reiniciado.');
+    window.location.reload(); // Recarrega a página para iniciar do zero
 }
 
 // Funções do jogo
@@ -65,9 +97,10 @@ function completarQuest(id) {
         
         console.log(`Quest "${quest.titulo}" completada! Você ganhou ${quest.recompensa} moedas.`);
         
-        salvarProgresso(); // Salva o progresso após completar a quest
+        salvarProgresso();
         atualizarContadorMoedas();
         renderizarQuests();
+        renderizarRanking(); // Atualiza o ranking
     }
 }
 
@@ -104,10 +137,47 @@ function renderizarQuests() {
     });
 }
 
+function renderizarRanking() {
+    const container = document.querySelector('.ranking-container');
+    if (!container) return;
+
+    // Combina o jogador atual com a lista simulada
+    const todosOsJogadores = [...rankingSimulado, { nome: player.nome, moedas: player.moedas }];
+    
+    // Ordena os jogadores por moedas (do maior para o menor)
+    todosOsJogadores.sort((a, b) => b.moedas - a.moedas);
+
+    container.innerHTML = ''; // Limpa o ranking
+
+    todosOsJogadores.forEach((jogador, index) => {
+        const itemElement = document.createElement('div');
+        itemElement.className = 'ranking-item';
+
+        // Destaca o jogador atual
+        if (jogador.nome === player.nome) {
+            itemElement.classList.add('jogador-atual');
+        }
+
+        itemElement.innerHTML = `
+            <span class="ranking-pos">${index + 1}º</span>
+            <span class="ranking-nome">${jogador.nome}</span>
+            <span class="ranking-moedas">${jogador.moedas} moedas</span>
+        `;
+        container.appendChild(itemElement);
+    });
+}
+
 // Inicialização do jogo
 document.addEventListener('DOMContentLoaded', () => {
     console.log("Onboarding gamificado iniciado!");
-    carregarProgresso(); // Carrega o progresso salvo
+    carregarProgresso();
     atualizarContadorMoedas();
     renderizarQuests();
+    renderizarRanking(); // Renderiza o ranking inicial
+
+    // Adiciona o event listener para o botão de reset
+    const resetButton = document.getElementById('reset-btn');
+    if (resetButton) {
+        resetButton.addEventListener('click', resetarProgresso);
+    }
 });

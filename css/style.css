@@ -83,6 +83,16 @@ header nav ul {
     letter-spacing: 1px;
 }
 
+#reset-btn {
+    margin-left: 20px; /* Espaço entre o contador e o botão */
+    background-color: var(--cor-neon-vermelho); /* Cor vermelha para o reset */
+}
+
+#reset-btn:hover {
+    background-color: #cc0033; /* Um vermelho mais escuro no hover */
+    box-shadow: 0 0 10px #cc0033;
+}
+
 header nav ul li {
     margin-left: 30px;
 }
@@ -295,6 +305,71 @@ main section h2::after {
 
 .quest-item.concluida h3 {
     text-decoration: line-through; /* Tacha o título da quest concluída */
+}
+
+/* Estilos para a Seção de Ranking */
+#ranking {
+    background-color: var(--cor-fundo-escuro);
+    border-top: 1px solid var(--cor-neon-azul);
+    border-bottom: 1px solid var(--cor-neon-azul);
+}
+
+.ranking-container {
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.ranking-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    background-color: var(--cor-fundo-secao);
+    border-radius: 8px;
+    border: 1px solid rgba(0, 191, 255, 0.2);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.ranking-item:hover {
+    background-color: rgba(0, 191, 255, 0.1);
+    border-color: var(--cor-neon-azul);
+}
+
+.ranking-item span {
+    font-size: 1.2em;
+}
+
+.ranking-pos {
+    font-weight: 700;
+    color: var(--cor-neon-azul);
+    min-width: 40px;
+}
+
+.ranking-nome {
+    flex-grow: 1;
+    text-align: left;
+    margin-left: 20px;
+}
+
+.ranking-moedas {
+    font-weight: 700;
+    color: var(--cor-neon-vermelho);
+    text-shadow: 0 0 5px var(--cor-neon-vermelho);
+}
+
+/* Estilo para destacar o jogador atual no ranking */
+.ranking-item.jogador-atual {
+    background-color: rgba(0, 255, 170, 0.15);
+    border-color: #00ffaa;
+    box-shadow: 0 0 10px rgba(0, 255, 170, 0.3);
+}
+
+.ranking-item.jogador-atual .ranking-nome,
+.ranking-item.jogador-atual .ranking-pos {
+    color: #00ffaa;
+    font-weight: 700;
 }
 
 
