@@ -277,3 +277,106 @@ main section h2::after {
     color: var(--cor-neon-azul); /* Cargo em azul neon */
     opacity: 0.9;
 }
+
+/* Estilos para a Seção Nossos Valores */
+#valores {
+    background-color: var(--cor-fundo-secao);
+    border-top: 1px solid var(--cor-neon-vermelho);
+    border-bottom: 1px solid var(--cor-neon-azul);
+}
+
+.valores-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.valor-item {
+    background-color: var(--cor-fundo-escuro);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 51, 102, 0.2); /* Sutil brilho vermelho */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 51, 102, 0.3);
+}
+
+.valor-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 25px rgba(255, 51, 102, 0.4), 0 0 40px rgba(255, 51, 102, 0.1);
+    border-color: var(--cor-neon-vermelho);
+}
+
+.valor-item h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: var(--cor-neon-vermelho); /* Título em neon vermelho */
+    text-shadow: 0 0 5px var(--cor-neon-vermelho);
+}
+
+.valor-item p {
+    font-size: 1em;
+    line-height: 1.6;
+    color: var(--cor-texto);
+    opacity: 0.9;
+}
+
+/* Estilos para o Rodapé */
+footer {
+    background-color: var(--cor-fundo-escuro);
+    color: var(--cor-texto);
+    padding: 60px 5% 30px;
+    border-top: 1px solid var(--cor-neon-azul);
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 30px;
+    margin-bottom: 40px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+    max-width: 300px;
+    text-align: left;
+}
+
+.footer-section h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.4em;
+    margin-bottom: 20px;
+    color: var(--cor-neon-azul);
+    text-shadow: 0 0 5px var(--cor-neon-azul);
+}
+
+.footer-section p, .footer-section ul li {
+    font-size: 0.95em;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    opacity: 0.8;
+}
+
+.footer-section a {
+    color: var(--cor-texto); /* Links no rodapé em branco */
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: var(--cor-neon-vermelho);
+    text-shadow: 0 0 5px var(--cor-neon-vermelho);
+}
+
+.footer-bottom {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0, 191, 255, 0.1);
+    font-size: 0.85em;
+    opacity: 0.6;
+}
