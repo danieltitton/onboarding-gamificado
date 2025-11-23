@@ -60,8 +60,27 @@ header {
     backdrop-filter: blur(5px); /* Efeito de blur no fundo */
 }
 
+header nav {
+    display: flex;
+    align-items: center; /* Garante alinhamento vertical */
+}
+
 header nav ul {
     display: flex;
+}
+
+/* Novo estilo para o contador de moedas */
+.coin-counter {
+    margin-left: 30px; /* Espaçamento à esquerda */
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--cor-texto);
+    text-shadow: 0 0 5px var(--cor-neon-vermelho), 0 0 10px var(--cor-neon-vermelho);
+}
+
+.coin-counter span {
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1px;
 }
 
 header nav ul li {
@@ -226,7 +245,58 @@ main section h2::after {
     line-height: 1.6;
     color: var(--cor-texto);
     opacity: 0.9;
+    margin-bottom: 20px; /* Adiciona espaço antes do botão/status */
 }
+
+/* Estilos para os elementos dinâmicos das quests */
+.quest-item .recompensa {
+    font-size: 0.9em;
+    font-weight: 600;
+    color: var(--cor-neon-vermelho);
+    margin-bottom: 20px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.quest-item button {
+    background-color: var(--cor-neon-azul);
+    color: var(--cor-fundo-escuro);
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.quest-item button:hover {
+    background-color: #00ffaa; /* Um verde neon para o hover */
+    box-shadow: 0 0 15px #00ffaa;
+}
+
+.quest-item .status {
+    font-weight: 700;
+    color: #00ffaa; /* Verde neon para status concluído */
+    text-transform: uppercase;
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* Estilo para a quest quando concluída */
+.quest-item.concluida {
+    opacity: 0.6;
+    border-color: #00ffaa;
+    box-shadow: 0 0 15px rgba(0, 255, 170, 0.2);
+}
+
+.quest-item.concluida::before {
+    background-color: #00ffaa; /* Muda a cor da barra superior para verde */
+    box-shadow: 0 0 5px #00ffaa;
+}
+
+.quest-item.concluida h3 {
+    text-decoration: line-through; /* Tacha o título da quest concluída */
+}
+
 
 /* Estilos para a Seção Time de Onboarding */
 #time-onboarding {
